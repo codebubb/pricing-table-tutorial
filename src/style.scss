@@ -1,0 +1,199 @@
+$white: rgb(220, 220, 220);
+$grey-light: rgba(237, 237, 237, 0.8);
+$grey: rgb(155, 155, 155);
+$black: rgb(16, 16, 16);
+
+$background-gradient: linear-gradient(to left, #2c5364, #203a43, #0f2027);
+$blue-gradient: linear-gradient(135deg, #5566bf, #5a7db0, #6fb4c2);
+$pink-gradient: linear-gradient(135deg, #fb8ca6, #d78ad4, #bd87ea);
+$orange-gradient: linear-gradient(135deg, #db64a7, #e597a1, #cfb17d);
+
+html,
+body {
+    height: 100%;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: $background-gradient;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pricing-table {
+    display: flex;
+    width: 800px;
+    height: 450px;
+
+    .individual, .shared, .unlimited {
+        flex: 1;
+        height: 100%;
+        border-radius: 12px;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+
+        h2 {
+            text-align: center;
+            position: relative;
+
+            &::after {
+                width: 20px;
+                background-color: $white;
+                height: 3px;
+                content: " ";
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+
+            }
+        }
+
+        .price { 
+            span {
+                font-size: 50px;
+                position: absolute;
+                top: 60px;
+                left: 10px;
+            }
+
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 30px;
+            color: rgba($grey-light, 0.07);
+            font-weight: 900;
+            font-size: 350px;
+        }
+    }
+
+    .individual {
+         background: $blue-gradient;
+        
+    }
+
+    .shared {
+        background: $pink-gradient;
+        position: static;
+        transform: scale(1.1);
+        z-index: 10;
+        box-shadow: 0 0 24px 8px rgba($black, 0.4);
+        
+        .continue {
+            position: relative;
+            overflow: visible;
+            top: 45px;
+        }
+
+        .waves {
+            position: absolute;
+            content: "";
+            bottom: 0px;
+            width: 100%;
+            border-radius: 12px;
+            height: 176px;
+            background-image: url(waves.png);
+            background-size: cover;
+        }
+        
+    }
+
+    .unlimited {
+        background: $orange-gradient;
+
+        .lines {
+            position: absolute;
+            content: "";
+            top: 0px;
+            width: 100%;
+            border-radius: 12px;
+            height: 100px;
+            background-image: url(lines.png);
+            background-size: cover;
+        }
+        
+    }
+
+    .feature {
+        width: 80%; 
+        margin: 0 auto;
+
+        h3 {
+            color: $grey-light;
+            font-weight: 400;
+
+            span {
+                color: $white;
+                font-weight: 700;
+            }
+        }
+
+        .progress {
+            background-color: rgba($black, 0.3);
+            width: 100%;
+            height: 30px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 8px 16px 5px rgba($black, 0.2);
+
+
+            &.office::after {
+                border-radius: 15px;
+                position: absolute;
+                background: $pink-gradient;
+                width: 80%;
+                height: 100%;
+                content: "";
+            }
+
+            &.home::after {
+                border-radius: 15px;
+                position: absolute;
+                background: $orange-gradient;
+                width: 50%;
+                height: 100%;
+                content: "";
+            }
+        }
+    }
+
+    .large-feature {
+        text-align: center;
+        p {
+            margin: 0;
+        }
+        h3 {
+            padding: 20px 0;
+            font-size: 40px;
+            font-weight: 500;
+        }
+    }
+
+    .continue {
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 80%; 
+            padding: 15px 50px;
+            border-radius: 25px;
+            border: none;
+            color: $grey;
+            font-size: 16px;
+            box-shadow: 0 8px 12px 3px rgba($black, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                height: 12px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+}
